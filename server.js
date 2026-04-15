@@ -2,6 +2,7 @@ const http = require("http");
 const { MongoClient, ObjectId } = require("mongodb");
 
 const url = process.env.MONGO_URL || "mongodb://127.0.0.1:27017";
+const PORT = process.env.PORT || 2000;
 const client = new MongoClient(url);
 
 let db;
@@ -153,6 +154,6 @@ const server = http.createServer(async (req, res) => {
 // =========================
 // START SERVER
 // =========================
-server.listen(2000, () => {
-  console.log("Server running on http://localhost:2000");
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
